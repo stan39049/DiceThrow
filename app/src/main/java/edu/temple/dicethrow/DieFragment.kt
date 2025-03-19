@@ -18,6 +18,14 @@ class DieFragment : Fragment() {
 
     var dieSides: Int = 6
 
+    fun multiSide(sides: Int): DieFragment {
+        return DieFragment().apply {
+            arguments = Bundle().apply {
+                putInt(DIESIDE, sides)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

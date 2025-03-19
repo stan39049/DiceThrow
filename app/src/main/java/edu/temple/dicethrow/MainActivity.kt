@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.rollDiceButton).setOnClickListener {
-            (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as DieFragment).throwDie()
+            val die = DieFragment().multiSide(20)
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, die).commit()
         }
     }
 }
