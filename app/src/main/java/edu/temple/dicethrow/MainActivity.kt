@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.rollDiceButton).setOnClickListener {
             val die = DieFragment().multiSide(20)
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, die).commit()
+            val die2 = DieFragment().multiSide(20)
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, die).replace(R.id.fragmentContainerView2, die2).commit()
         }
     }
 }
