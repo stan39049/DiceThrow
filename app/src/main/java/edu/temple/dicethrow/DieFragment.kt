@@ -29,7 +29,7 @@ class DieFragment : Fragment() {
             }
         }
 
-        dieViewModel = ViewModelProvider(this)[DieViewModel::class.java]
+        dieViewModel = ViewModelProvider(requireActivity())[DieViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -55,14 +55,11 @@ class DieFragment : Fragment() {
         }
 
         if(dieViewModel.getCurrentRoll().value == null){
-            throwDie()
+            dieViewModel.rollDie()
         }
         view.setOnClickListener{
-            throwDie()
+            dieViewModel.rollDie()
         }
     }
 
-    fun throwDie() {
-        dieViewModel.setCurrentRoll((Random.nextInt(dieSides)+1))
-    }
 }
